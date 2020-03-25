@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
 namespace Project.Api.Installers
 {
@@ -19,10 +20,10 @@ namespace Project.Api.Installers
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(x => {
-                x.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Project API", Version = "v1" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Project API", Version = "v1" });
             });
             services.ConfigureSwaggerGen(options => {
-                options.DescribeAllEnumsAsStrings();
+               
             });
 
             //Enble CORS
